@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Propositions{% endblock %}
+
+{% block body %}
+    <h1>Propositions</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ proposition.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ proposition.type }}</td>
+            </tr>
+            <tr>
+                <th>Proposition</th>
+                <td>{{ proposition.proposition }}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{{ proposition.enabled ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>IsAGoodAnswer</th>
+                <td>{{ proposition.isAGoodAnswer ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_propositions_index') }}">back to list</a>
+
+    <a href="{{ path('app_propositions_edit', {'id': proposition.id}) }}">edit</a>
+
+    {{ include('propositions/_delete_form.html.twig') }}
+{% endblock %}

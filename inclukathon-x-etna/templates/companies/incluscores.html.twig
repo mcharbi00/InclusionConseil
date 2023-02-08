@@ -1,0 +1,24 @@
+{% extends "./base.html.twig" %}
+{%block body%}
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quizz Link</th>
+            <th>Actions</th>
+        </tr></thead><tbody>
+            {% for inclu in inclus%}
+            <tr>
+            <td><p>{{inclu.name}}</p></td>
+            <td><a>{{inclu.quizzLink}}</a></td>
+
+            <td>
+                {#<a href="{{path('app_team_edit', {'id': team.id})}}">Edit</a>
+                <a href="{{path('app_teams_by_company', {'id': company.id})}}">Show Teams</a>
+                <a href="{{path('app_add_team', {'id': company.id})}}">add a team</a>#}
+            </td>
+            {% endfor %}
+        </tr></tbody></table>
+{%endblock%}
+
+

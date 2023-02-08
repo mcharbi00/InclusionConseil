@@ -1,0 +1,29 @@
+{% extends "./base.html.twig" %}
+{%block body%}
+<div class="manage-company-page">
+    <div>
+        <a class="w-25 d-block btn btn-success btn-new ml-auto mr-0" href="{{path('app_add_team', {'id': company.id})}}">Nouvelle équipe</a>
+    </div>
+
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>Équipe</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr></thead><tbody>
+            {% for team in teams%}
+            <tr>
+            <td><p>{{team.name}}</p></td>
+            <td><p>{{team.project_description}}</p></td>
+
+            <td>
+                <a href="{{path('app_team_edit', {'id': team.id})}}">Modifier</a>
+                {#<a href="{{path('app_teams_by_company', {'id': company.id})}}">Show Teams</a>#}
+                
+            </td>
+            {% endfor %}
+        </tr></tbody></table>
+{%endblock%}
+
+

@@ -1,0 +1,36 @@
+{% extends "./base.html.twig" %}
+{%block body%}
+<div class="manage-company-page"><div><button class="d-block btn btn-success btn-new ml-auto mr-0" onclick="location.href='/add-company'">Nouvelle entreprise</button></div>
+            <table class="admin-table"> 
+                <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Nom</th>
+                        <th>Équipes</th>
+                        <th>Utilisateurs</th>
+                        <th>Actions</th>
+                    </tr></thead><tbody>
+                        {% for company in companies%}
+                        <tr>
+                        <td><img class="d-block m-auto" width="25%" src="{{ asset("img/#{company.imgPath}") }}" alt="logo"></td>
+                        <td><p>{{company.name}}</p></td>
+                        {% for team in company.teams %}
+                        <td>{{team.name}}</td>
+                        {% endfor %}
+                        {% for user in company.users %}
+                        <td>{{user.firstname}}</td>
+                        {% endfor %}
+                        <td>
+                            <a href="{{path('app_company_edit', {'id': company.id})}}">Modifier</a>
+                            <a href="{{path('app_teams_by_company', {'id': company.id})}}">Équipes</a>
+                            {% for inclu in company.incluscores %}
+                            {%if inclu.name is not null %}
+                            <a href="{{path('app_incluscores_by_company', {'id': company.id})}}">Incluscores</a>
+                            {% endif %}
+                            {% endfor %}
+                        </td>
+                        {% endfor %}
+                    </tr></tbody></table></div></div></div></div></div></div>
+{%endblock%}
+
+   

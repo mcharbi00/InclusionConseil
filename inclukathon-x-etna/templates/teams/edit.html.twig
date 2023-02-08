@@ -1,0 +1,13 @@
+{% extends "./base.html.twig" %}
+{%block body%}
+<h1>Edit Team</h1>
+
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.enabled) }}
+    {{ form_row(form.projectDescription) }}
+    {{ form_row(form.save, { 'label': 'Save Changes' } ) }}
+{{ form_end(form) }}
+
+<a href="{{ path('app_teams_by_company', {'id': company.id} ) }}">back to list</a>
+{%endblock%}

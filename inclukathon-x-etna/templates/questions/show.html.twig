@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Questions{% endblock %}
+
+{% block body %}
+    <h1>Questions</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ question.id }}</td>
+            </tr>
+            <tr>
+                <th>Question</th>
+                <td>{{ question.question }}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{{ question.enabled ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>AnswerExplanation</th>
+                <td>{{ question.answerExplanation }}</td>
+            </tr>
+            <tr>
+                <th>TypeMedia</th>
+                <td>{{ question.typeMedia }}</td>
+            </tr>
+            <tr>
+                <th>PathMedia</th>
+                <td>{{ question.PathMedia }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_questions_index') }}">back to list</a>
+
+    <a href="{{ path('app_questions_edit', {'id': question.id}) }}">edit</a>
+
+    {{ include('questions/_delete_form.html.twig') }}
+{% endblock %}
